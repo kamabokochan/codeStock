@@ -8,7 +8,7 @@ const Home: NextPage = () => {
 const Title = styled.div`
   font-size: 1.5em;
   text-align: center;
-  color: blue;
+  color: palevioletred;
 `;
 
 export default Home;
