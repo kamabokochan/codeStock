@@ -16,11 +16,11 @@ const Home: NextPage = () => {
         }}
         value={text}
       ></textarea>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<pre data-label="index.html"><code class="lang-javascript">${text}</code></pre>`,
-        }}
-      ></div>
+      <div className="line-numbers">
+        <pre data-label="index.js">
+          <code className="lang-javascript">{text}</code>
+        </pre>
+      </div>
     </>
   );
 };
