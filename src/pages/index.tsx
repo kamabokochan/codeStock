@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Script from "next/script";
 import { useState } from "react";
 
-import { Code } from "~/components/code";
+import { Code } from "~/components/Code";
 
 const Home: NextPage = () => {
   const [isEditable, setIsEditable] = useState(false);
