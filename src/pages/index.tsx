@@ -1,35 +1,17 @@
 import type { NextPage } from "next";
-import Prism from "prismjs";
-import { useEffect, useState } from "react";
-// import styled from "styled-components";
+import Script from "next/script";
+import { useState } from "react";
+
+import { Code } from "~/components/code";
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    Prism.highlightAll();
-  });
-  const [text, setText] = useState('const great = () => {console.log("Awesome");};');
+  const [isEditable, setIsEditable] = useState(false);
   return (
     <>
-      <textarea
-        name="content"
-        onChange={(e) => {
-          return setText(e.target.value);
-        }}
-        value={text}
-      ></textarea>
-      <div className="line-numbers">
-        <pre data-label="index.js">
-          <code className="lang-javascript">{text}</code>
-        </pre>
-      </div>
+      <Script src="libs/prism-live/src/prism-live.js?load=css,javascript"></Script>
+      <Code isEditable={isEditable} />
     </>
   );
 };
-
-// const Title = styled.div`
-//   font-size: 1.5em;
-//   text-align: center;
-//   color: palevioletred;
-// `;
 
 export default Home;
