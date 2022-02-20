@@ -10,5 +10,6 @@ module.exports = {
         css: true,
       },
     ],
+    ["styled-components", { ssr: true }],
   ],
 };
