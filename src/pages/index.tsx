@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Prism from "prismjs";
 import { useEffect, useState } from "react";
+// import styled from "styled-components";
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -24,5 +25,11 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+// const Title = styled.div`
+//   font-size: 1.5em;
+//   text-align: center;
+//   color: palevioletred;
+// `;
 
 export default Home;
