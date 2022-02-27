@@ -5,9 +5,7 @@ module.exports = {
       "prismjs",
       {
         languages: ["javascript", "css", "html", "bash", "jsx", "tsx", "typescript"],
-        plugins: ["line-numbers", "show-language", "copy-to-clipboard"],
-        theme: "tomorrow",
-        css: true,
+        plugins: ["line-numbers", "copy-to-clipboard"],
       },
     ],
     ["styled-components", { ssr: true }],
