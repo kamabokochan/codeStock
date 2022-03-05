@@ -25,7 +25,7 @@ const Component: React.FC<ComponentProps> = (props) => {
           value={text}
         ></textarea>
       ) : (
-        <pre>
+        <pre data-prismjs-copy="📎" data-prismjs-copy-error="😵" data-prismjs-copy-success="😋">
           <code className="lang-typescript">{text}</code>
         </pre>
       )}
