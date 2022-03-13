@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export type ContainerProps = {
-  // isEditable: boolean;
+  contents: {
+    title: string;
+    secondaryText: string;
+  };
 };
 
-type ComponentProps = {
-  //   text: string;
-  //   setText: React.Dispatch<React.SetStateAction<string>>;
-} & ContainerProps;
+type ComponentProps = ContainerProps;
 
 const Component: React.FC<ComponentProps> = (props) => {
+  const { title, secondaryText } = props.contents;
   return (
     <Container>
       <Thumbnail />
       <TextSection>
-        <Title>title</Title>
-        <SecondaryText>secondary text</SecondaryText>
+        <Title>{title}</Title>
+        <SecondaryText>{secondaryText}</SecondaryText>
       </TextSection>
     </Container>
   );
@@ -44,11 +45,10 @@ const TextSection = styled.div`
 const Title = styled.h2``;
 const SecondaryText = styled.p``;
 
-export const Card: React.FC<ContainerProps> = (props) => {
-  // const props = {
-  //   text,
-  //   setText,
-  //   isEditable,
-  // };
-  return <Component {...props} />;
+export const Card: React.FC = () => {
+  const sampleData = {
+    title: "title",
+    secondaryText: "secondaryText",
+  };
+  return <Component contents={sampleData} />;
 };
