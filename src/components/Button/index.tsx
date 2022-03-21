@@ -5,7 +5,7 @@ export type ContainerProps = { children: string } & ButtonHTMLAttributes<HTMLBut
 
 type ComponentProps = ContainerProps;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
   font-size: 16px;
   padding: 4px 8px;
   border: none;
