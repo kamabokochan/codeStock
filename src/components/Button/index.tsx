@@ -5,10 +5,6 @@ export type ContainerProps = { children: string } & ButtonHTMLAttributes<HTMLBut
 
 type ComponentProps = ContainerProps;
 
-const Component: React.FC<ComponentProps> = (props) => {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
-};
-
 const StyledButton = styled.button`
   font-size: 16px;
   padding: 4px 8px;
@@ -17,6 +13,10 @@ const StyledButton = styled.button`
   color: white;
   border-radius: 3px;
 `;
+
+const Component: React.FC<ComponentProps> = (props) => {
+  return <StyledButton {...props}>{props.children}</StyledButton>;
+};
 
 export const Button: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />;

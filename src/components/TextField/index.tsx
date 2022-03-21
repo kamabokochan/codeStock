@@ -5,15 +5,15 @@ export type ContainerProps = InputHTMLAttributes<HTMLInputElement>;
 
 type ComponentProps = ContainerProps;
 
-const Component: React.FC<ComponentProps> = (props) => {
-  return <TextInput type="text" {...props} />;
-};
-
 const TextInput = styled.input`
   font-size: 16px;
   border: none;
   padding: 8px;
 `;
+
+const Component: React.FC<ComponentProps> = (props) => {
+  return <TextInput type="text" {...props} />;
+};
 
 export const TextField: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />;

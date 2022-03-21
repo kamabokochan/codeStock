@@ -33,8 +33,6 @@ const Component: React.FC<ComponentProps> = (props) => {
   );
 };
 
-// const StyledComponent = styled(Component)`...`;
-
 export const Code: React.FC<ContainerProps> = ({ isEditable }) => {
   useEffect(() => {
     Prism.highlightAll();

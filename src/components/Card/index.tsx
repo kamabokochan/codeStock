@@ -10,19 +10,6 @@ export type ContainerProps = {
 
 type ComponentProps = ContainerProps;
 
-const Component: React.FC<ComponentProps> = (props) => {
-  const { title, secondaryText } = props.contents;
-  return (
-    <Container>
-      <Thumbnail />
-      <TextSection>
-        <Title>{title}</Title>
-        <SecondaryText>{secondaryText}</SecondaryText>
-      </TextSection>
-    </Container>
-  );
-};
-
 const Container = styled.div`
   width: 320px;
   border-radius: 4px;
@@ -44,6 +31,19 @@ const TextSection = styled.div`
 `;
 const Title = styled.h2``;
 const SecondaryText = styled.p``;
+
+const Component: React.FC<ComponentProps> = (props) => {
+  const { title, secondaryText } = props.contents;
+  return (
+    <Container>
+      <Thumbnail />
+      <TextSection>
+        <Title>{title}</Title>
+        <SecondaryText>{secondaryText}</SecondaryText>
+      </TextSection>
+    </Container>
+  );
+};
 
 export const Card: React.FC = () => {
   const sampleData = {
