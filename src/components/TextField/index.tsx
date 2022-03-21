@@ -6,11 +6,17 @@ export type ContainerProps = InputHTMLAttributes<HTMLInputElement>;
 type ComponentProps = ContainerProps;
 
 const Component: React.FC<ComponentProps> = (props) => {
-  return <input type="text" placeholder={props.placeholder} />;
+  return <TextInput type="text" placeholder={props.placeholder} />;
 };
 
-const Container = styled.div``;
+const TextInput = styled.input`
+  font-size: 16px;
+  border: none;
+  padding: 8px;
+`;
 
 export const TextField: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />;
 };
+
+// https://material.io/components/text-fields

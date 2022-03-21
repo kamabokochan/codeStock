@@ -6,10 +6,17 @@ export type ContainerProps = { text: string } & ButtonHTMLAttributes<HTMLInputEl
 type ComponentProps = ContainerProps;
 
 const Component: React.FC<ComponentProps> = (props) => {
-  return <button>{props.text}</button>;
+  return <ButtonStyle>{props.text}</ButtonStyle>;
 };
 
-const Container = styled.div``;
+const ButtonStyle = styled.button`
+  font-size: 16px;
+  padding: 4px 8px;
+  border: none;
+  background: pink;
+  color: white;
+  border-radius: 3px;
+`;
 
 export const Button: React.FC<ContainerProps> = (props) => {
   return <Component {...props} />;
