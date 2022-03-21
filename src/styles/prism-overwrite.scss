@@ -1,0 +1,29 @@
+.code-toolbar {
+  position: relative;
+  &:hover {
+    .copy-to-clipboard-button {
+      opacity: 1;
+    }
+  }
+  .copy-to-clipboard-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.24s;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 24px;
+  }
+}
+
+pre[class*="language-"] {
+  margin: 0;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #2d2d2d;
+}
