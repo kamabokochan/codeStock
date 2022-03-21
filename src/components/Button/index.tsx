@@ -14,8 +14,8 @@ const StyledButton = styled.button`
   border-radius: 3px;
 `;
 
-const Component: React.FC<ComponentProps> = (props) => {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
+const Component: React.FC<ComponentProps> = ({ children, ...props }) => {
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export const Button: React.FC<ContainerProps> = (props) => {
