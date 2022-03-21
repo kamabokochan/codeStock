@@ -15,8 +15,8 @@ const Home: NextPage = () => {
       <Code isEditable={isEditable} />
       <TextField placeholder="title" />
       <TextField placeholder="description" />
-      <Button text="save" />
-      <Button text="deleat" />
+      <Button>save</Button>
+      <Button>delete</Button>
     </>
   );
 };

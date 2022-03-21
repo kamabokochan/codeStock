@@ -1,15 +1,15 @@
 import React, { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 
-export type ContainerProps = { text: string } & ButtonHTMLAttributes<HTMLInputElement>;
+export type ContainerProps = { children: string } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ComponentProps = ContainerProps;
 
 const Component: React.FC<ComponentProps> = (props) => {
-  return <ButtonStyle>{props.text}</ButtonStyle>;
+  return <StyledButton {...props}>{props.children}</StyledButton>;
 };
 
-const ButtonStyle = styled.button`
+const StyledButton = styled.button`
   font-size: 16px;
   padding: 4px 8px;
   border: none;

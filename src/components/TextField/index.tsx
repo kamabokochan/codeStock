@@ -6,7 +6,7 @@ export type ContainerProps = InputHTMLAttributes<HTMLInputElement>;
 type ComponentProps = ContainerProps;
 
 const Component: React.FC<ComponentProps> = (props) => {
-  return <TextInput type="text" placeholder={props.placeholder} />;
+  return <TextInput type="text" {...props} />;
 };
 
 const TextInput = styled.input`
