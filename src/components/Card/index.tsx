@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 export type ContainerProps = {
-  contents: {
+  data: {
     title: string;
     secondaryText: string;
   };
@@ -32,8 +32,8 @@ const TextSection = styled.div`
 const Title = styled.h2``;
 const SecondaryText = styled.p``;
 
-const Component: React.FC<ComponentProps> = (props) => {
-  const { title, secondaryText } = props.contents;
+const Component: React.FC<ComponentProps> = ({ data }) => {
+  const { title, secondaryText } = data;
   return (
     <Container>
       <Thumbnail />
@@ -45,10 +45,6 @@ const Component: React.FC<ComponentProps> = (props) => {
   );
 };
 
-export const Card: React.FC = () => {
-  const sampleData = {
-    title: "title",
-    secondaryText: "secondaryText",
-  };
-  return <Component contents={sampleData} />;
+export const Card: React.FC<ContainerProps> = (props) => {
+  return <Component {...props} />;
 };

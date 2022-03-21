@@ -1,6 +1,5 @@
 import Prism from "prismjs";
 import React, { useEffect, useState } from "react";
-// import styled from "styled-components";
 
 export type ContainerProps = {
   isEditable: boolean;

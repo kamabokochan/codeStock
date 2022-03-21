@@ -1,11 +1,12 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import styled from "styled-components";
 
-export type ContainerProps = { children: string } & ButtonHTMLAttributes<HTMLButtonElement>;
+export type ContainerProps = { children: string } & ComponentPropsWithoutRef<"button">;
+// learn more: https://react-typescript-cheatsheet.netlify.app/docs/advanced/patterns_by_usecase/#wrappingmirroring
 
 type ComponentProps = ContainerProps;
 
-const StyledButton = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
+const StyledButton = styled.button`
   font-size: 16px;
   padding: 4px 8px;
   border: none;
@@ -14,8 +15,8 @@ const StyledButton = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
   border-radius: 3px;
 `;
 
-const Component: React.FC<ComponentProps> = ({ children, ...props }) => {
-  return <StyledButton {...props}>{children}</StyledButton>;
+const Component: React.FC<ComponentProps> = ({ children, ...rest }) => {
+  return <StyledButton {...rest}>{children}</StyledButton>;
 };
 
 export const Button: React.FC<ContainerProps> = (props) => {
