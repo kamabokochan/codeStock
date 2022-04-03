@@ -2,6 +2,7 @@ import Prism from "prismjs";
 import React, { useEffect, useState } from "react";
 
 export type ContainerProps = {
+  code: string;
   isEditable: boolean;
 };
 
@@ -13,7 +14,8 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = (props) => {
   const { text, setText, isEditable } = props;
   return (
-    <div className="line-numbers">
+    // <div className="line-numbers">
+    <div>
       {isEditable ? (
         <textarea
           name="content"
@@ -32,14 +34,15 @@ const Component: React.FC<ComponentProps> = (props) => {
   );
 };
 
-export const Code: React.FC<ContainerProps> = ({ isEditable }) => {
+export const Code: React.FC<ContainerProps> = ({ code, isEditable }) => {
   useEffect(() => {
     Prism.highlightAll();
   });
-  const [text, setText] = useState('const great = () => {console.log("Awesome");};');
+  const [text, setText] = useState(code);
   const props = {
     text,
     setText,
+    code,
     isEditable,
   };
   return <Component {...props} />;
