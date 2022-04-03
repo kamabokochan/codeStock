@@ -11,7 +11,7 @@ export class CodeRepository {
     const codesResponse = await this.driver.fetchAllCodes();
     return codesResponse?.map((codeResponse) => {
       const { id, title, description, code } = codeResponse;
-      new Code(id, title, description, code);
+      return new Code(id, title, description, code);
     });
   }
 }
