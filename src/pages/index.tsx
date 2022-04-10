@@ -50,7 +50,7 @@ for (let file of files) {
   return (
     <>
       <Script src="libs/prism-live/src/prism-live.js?load=css,javascript"></Script>
-      <Column columns={3}>
+      <Column columns={3} gap={16}>
         {sampleData.map((data, key) => {
           return <Card data={data} key={key} />;
         })}

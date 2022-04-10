@@ -15,6 +15,7 @@ type ComponentProps = ContainerProps;
 
 const Container = styled.div`
   width: 100%;
+  height: 100%;
   border-radius: 4px;
   overflow: hidden;
   background: #fff;
@@ -38,8 +39,19 @@ const ThumbnailInner = styled.div`
 const TextSection = styled.div`
   padding: 8px;
 `;
-const Title = styled.h2``;
-const SecondaryText = styled.p``;
+const Title = styled.h2`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+`;
+const SecondaryText = styled.p`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+`;
+// TODO: ellipsize & numberOfLinesを関数化するかも
 
 const Component: React.FC<ComponentProps> = ({ data }) => {
   const { code, title, secondaryText } = data;
