@@ -12,8 +12,7 @@ export type ContainerProps = {
 
 type ComponentProps = {
   itemWidth: ItemWidth;
-  gap: Gap;
-} & Pick<ContainerProps, "children">;
+} & Omit<ContainerProps, "columns">;
 
 const Container = styled.div`
   width: ${({ gap }: { gap: Gap }) => {
