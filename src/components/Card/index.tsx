@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
+import { Code } from "~/components";
+
 export type ContainerProps = {
-  contents: {
+  data: {
+    code: string;
     title: string;
     secondaryText: string;
   };
@@ -11,32 +14,54 @@ export type ContainerProps = {
 type ComponentProps = ContainerProps;
 
 const Container = styled.div`
-  width: 320px;
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   overflow: hidden;
   background: #fff;
 `;
 const Thumbnail = styled.div`
-  background-image: url("sample.png");
-  background-size: contain;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
   &::before {
     content: "";
     display: block;
     padding-top: 56.25%;
+    background: #2d2d2d;
   }
+`;
+const ThumbnailInner = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 `;
 const TextSection = styled.div`
   padding: 8px;
 `;
-const Title = styled.h2``;
-const SecondaryText = styled.p``;
+const Title = styled.h2`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+`;
+const SecondaryText = styled.p`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+`;
+// TODO: ellipsize & numberOfLinesを関数化するかも
 
-const Component: React.FC<ComponentProps> = (props) => {
-  const { title, secondaryText } = props.contents;
+const Component: React.FC<ComponentProps> = ({ data }) => {
+  const { code, title, secondaryText } = data;
   return (
     <Container>
-      <Thumbnail />
+      <Thumbnail>
+        <ThumbnailInner>
+          <Code code={code} isEditable={false} />
+        </ThumbnailInner>
+      </Thumbnail>
       <TextSection>
         <Title>{title}</Title>
         <SecondaryText>{secondaryText}</SecondaryText>
@@ -45,10 +70,6 @@ const Component: React.FC<ComponentProps> = (props) => {
   );
 };
 
-export const Card: React.FC = () => {
-  const sampleData = {
-    title: "title",
-    secondaryText: "secondaryText",
-  };
-  return <Component contents={sampleData} />;
+export const Card: React.FC<ContainerProps> = (props) => {
+  return <Component {...props} />;
 };
