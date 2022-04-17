@@ -1,26 +1,23 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
+    project: "tsconfig.json",
+    sourceType: "module",
   },
-  plugins: [
-    '@typescript-eslint/eslint-plugin',
-    'import'
-  ],
-  extends: [
-    'next/core-web-vitals',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-  ],
+  plugins: ["@typescript-eslint/eslint-plugin", "import", "unused-imports"],
+  extends: ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   root: true,
   env: {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: [".eslintrc.js"],
   rules: {
+    // unused-imports/no-unused-importsを入れたためoff
+    // see: https://zenn.dev/rena_h/scraps/fd330154d02f76
+    "@typescript-eslint/no-unused-vars": "off",
+    // eslint/no-unused-vars をTS用に拡張したもの
+    "unused-imports/no-unused-imports": "error",
     // if,whileブロック波括弧の省略禁止
     "curly": "error",
     // 厳密比較
@@ -31,12 +28,12 @@ module.exports = {
     "radix": "warn",
     // 識別子はキャメルケース
     "camelcase": [
-        "warn",
-        {
-            ignoreDestructuring: true,
-            ignoreImports: true,
-            ignoreGlobals: true,
-        },
+      "warn",
+      {
+        ignoreDestructuring: true,
+        ignoreImports: true,
+        ignoreGlobals: true,
+      },
     ],
     // 複雑な演算子の混在時に括弧をつける
     "no-mixed-operators": "warn",
@@ -47,21 +44,21 @@ module.exports = {
     "import/no-anonymous-default-export": "warn",
     "import/no-unresolved": "off",
     "import/order": [
-        "error",
-        {
-            // groups: ["builtin", "external", "parent", "sibling", "index"],
-            "newlines-between": "always",
-            "alphabetize": {
-                order: "asc",
-                caseInsensitive: true,
-            },
+      "error",
+      {
+        // groups: ["builtin", "external", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": {
+          order: "asc",
+          caseInsensitive: true,
         },
+      },
     ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     // 宣言前の使用禁止
     "@typescript-eslint/no-use-before-define": "warn",
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };
