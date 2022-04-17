@@ -1,6 +1,6 @@
 import { supabase } from "supabaseClient";
 
-interface CodeResponse {
+export interface CodeResponse {
   id: number;
   title: string;
   description: string;

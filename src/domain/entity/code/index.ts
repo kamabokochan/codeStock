@@ -1,13 +1,16 @@
-export class Code {
-  public readonly id: number;
-  public readonly title: string;
-  public readonly secondaryText: string;
-  public readonly code: string;
+import { CodeResponse } from "~/infrastructure/supabase";
 
-  constructor(id: number, title: string, secondaryText: string, code: string) {
-    this.id = id;
-    this.title = title;
-    this.secondaryText = secondaryText;
-    this.code = code;
+export type CodeEntity = {
+  secondaryText: string;
+} & Omit<CodeResponse, "description">;
+
+export class Code {
+  public id!: number;
+  public title!: string;
+  public secondaryText!: string;
+  public code!: string;
+
+  constructor(code: Code) {
+    Object.assign(this, code);
   }
 }

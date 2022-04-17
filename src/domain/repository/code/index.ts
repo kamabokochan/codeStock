@@ -10,8 +10,8 @@ export class CodeRepository {
   async fetchAllCodes() {
     const codesResponse = await this.driver.fetchAllCodes();
     return codesResponse?.map((codeResponse) => {
-      const { id, title, description, code } = codeResponse;
-      return new Code(id, title, description, code);
+      const { description: secondaryText, ...codeItem } = codeResponse;
+      return new Code({ ...codeItem, secondaryText });
     });
   }
 }
