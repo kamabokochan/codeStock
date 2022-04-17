@@ -2,10 +2,19 @@ import type { NextPage } from "next";
 import Script from "next/script";
 import { useState } from "react";
 
-import { Code, Card, TextField, Button, Column } from "~/components";
+import { Code, Card, TextField, Button, Column, Modal } from "~/components";
 
 const Home: NextPage = () => {
   const [isEditable, setIsEditable] = useState(false);
+  const [open, setOpen] = useState(false);
+  // TODO 型付け
+  const handleOpen = (e: any) => {
+    e.preventDefault();
+    return setOpen(true);
+  };
+  const handleClose = () => {
+    return setOpen(false);
+  };
   const sampleData = [
     {
       code: `
@@ -52,14 +61,21 @@ for (let file of files) {
       <Script src="libs/prism-live/src/prism-live.js?load=css,javascript"></Script>
       <Column columns={3} gap={16}>
         {sampleData.map((data, key) => {
-          return <Card data={data} key={key} />;
+          return (
+            <a href="#" onClick={handleOpen} key={key}>
+              <Card data={data} />
+            </a>
+          );
         })}
       </Column>
-      {/* <Code isEditable={isEditable} />
-      <TextField placeholder="title" />
-      <TextField placeholder="description" />
-      <Button>save</Button>
-      <Button>delete</Button> */}
+      <Modal open={open}>
+        <Code code={sampleData[0].code} isEditable={isEditable} />
+        <TextField placeholder="title" />
+        <TextField placeholder="description" />
+        <Button>save</Button>
+        <Button>delete</Button>
+        <button onClick={handleClose}>close modal</button>
+      </Modal>
     </>
   );
 };
