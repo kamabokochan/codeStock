@@ -1,13 +1,13 @@
 export class Code {
   public readonly id: number;
   public readonly title: string;
-  public readonly description: string;
+  public readonly secondaryText: string;
   public readonly code: string;
 
-  constructor(id: number, title: string, description: string, code: string) {
+  constructor(id: number, title: string, secondaryText: string, code: string) {
     this.id = id;
     this.title = title;
-    this.description = description;
+    this.secondaryText = secondaryText;
     this.code = code;
   }
 }

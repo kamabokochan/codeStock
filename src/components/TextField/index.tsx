@@ -1,7 +1,8 @@
-import React, { InputHTMLAttributes } from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import styled from "styled-components";
 
-export type ContainerProps = InputHTMLAttributes<HTMLInputElement>;
+export type ContainerProps = ComponentPropsWithoutRef<"input">;
+// learn more: https://react-typescript-cheatsheet.netlify.app/docs/advanced/patterns_by_usecase/#wrappingmirroring
 
 type ComponentProps = ContainerProps;
 
