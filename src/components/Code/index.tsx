@@ -9,7 +9,7 @@ export type ContainerProps = {
 type ComponentProps = {
   text: string;
   setText: React.Dispatch<React.SetStateAction<string>>;
-} & ContainerProps;
+} & Omit<ContainerProps, "code">;
 
 const Component: React.FC<ComponentProps> = (props) => {
   const { text, setText, isEditable } = props;
@@ -42,7 +42,6 @@ export const Code: React.FC<ContainerProps> = ({ code, isEditable }) => {
   const props = {
     text,
     setText,
-    code,
     isEditable,
   };
   return <Component {...props} />;
